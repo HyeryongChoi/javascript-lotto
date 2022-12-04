@@ -18,6 +18,10 @@ class Budget {
       throw new Error(ERROR_MESSAGE.invalidBudget);
     }
   }
+
+  getQuantity(unit) {
+    return parseInt(this.#money / unit);
+  }
 }
 
 module.exports = Budget;
