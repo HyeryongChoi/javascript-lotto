@@ -17,6 +17,10 @@ class LottoGame {
       return new Lotto(LottoMachine.issue());
     });
   }
+
+  getLottos() {
+    return Object.freeze(this.#lottos);
+  }
 }
 
 module.exports = LottoGame;
