@@ -3,7 +3,8 @@ const { LOTTO } = require('../utils/constants');
 
 const LottoMachine = {
   issue() {
-    return Random.pickUniqueNumbersInRange(LOTTO.min, LOTTO.max, LOTTO.size);
+    const numbers = Random.pickUniqueNumbersInRange(LOTTO.min, LOTTO.max, LOTTO.size);
+    return numbers.sort((a, b) => a - b);
   },
 };
 
