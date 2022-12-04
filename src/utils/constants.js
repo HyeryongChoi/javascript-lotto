@@ -8,6 +8,9 @@ const ERROR_MESSAGE = Object.freeze({
 
 const LOTTO = Object.freeze({
   price: 1000,
+  min: 1,
+  max: 45,
+  size: 6,
 });
 
 module.exports = {
