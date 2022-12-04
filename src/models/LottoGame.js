@@ -3,8 +3,8 @@ const Budget = require('./Budget');
 class LottoGame {
   #budget;
 
-  createBudget(input) {
-    this.#budget = new Budget(input);
+  constructor(money) {
+    this.#budget = new Budget(money);
   }
 }
 
