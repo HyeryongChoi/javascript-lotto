@@ -27,6 +27,16 @@ class LottoValidator extends Validator {
       throw new Error(ERROR_MESSAGE.invalidWinningNumbers);
     }
   }
+
+  static validateBonusNumber(bonusNumber, winningNumbers) {
+    if (
+      !LottoValidator.isNumeric(bonusNumber) ||
+      !LottoValidator.isBetween(bonusNumber, LOTTO.min, LOTTO.max) ||
+      winningNumbers.includes(parseInt(bonusNumber, 10))
+    ) {
+      throw new Error(ERROR_MESSAGE.invalidBonusNumber);
+    }
+  }
 }
 
 module.exports = LottoValidator;

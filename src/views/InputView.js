@@ -9,6 +9,10 @@ const InputView = {
   readWinningNumbers(callback) {
     Console.readLine(INPUT_MESSAGE.enterWinningNumbers, callback);
   },
+
+  readBonusNumber(callback) {
+    Console.readLine(INPUT_MESSAGE.enterBonusNumber, callback);
+  },
 };
 
 module.exports = InputView;

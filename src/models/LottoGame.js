@@ -26,13 +26,14 @@ class LottoGame {
   }
 
   initWinningNumbers(winningNumbers) {
-    this.validateWinningNumbers(winningNumbers);
+    LottoValidator.validateWinningNumbersInput(winningNumbers);
+    LottoValidator.validateWinningNumbers(winningNumbers.split(',').map(Number));
     this.#winningNumbers = winningNumbers.split(',').map(Number);
   }
 
-  validateWinningNumbers(winningNumbers) {
-    LottoValidator.validateWinningNumbersInput(winningNumbers);
-    LottoValidator.validateWinningNumbers(winningNumbers.split(',').map(Number));
+  initBonusNumber(bonusNumber) {
+    LottoValidator.validateBonusNumber(bonusNumber, Object.freeze(this.#winningNumbers));
+    this.#bonusNumber = parseInt(bonusNumber, 10);
   }
 }
 
