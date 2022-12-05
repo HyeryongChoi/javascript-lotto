@@ -1,10 +1,13 @@
 const Player = require('./Player');
 const Lotto = require('../Lotto');
+const LottoValidator = require('../utils/LottoValidator');
 const LottoMachine = require('./LottoMachine');
 const { LOTTO } = require('../utils/constants');
 
 class LottoGame {
   #player;
+  #winningNumbers;
+  #bonusNumber;
 
   constructor(budget) {
     this.#player = new Player(budget);
@@ -20,6 +23,16 @@ class LottoGame {
 
   getPurchasedLottos() {
     return Object.freeze(this.#player.getLottos());
+  }
+
+  initWinningNumbers(winningNumbers) {
+    this.validateWinningNumbers(winningNumbers);
+    this.#winningNumbers = winningNumbers.split(',').map(Number);
+  }
+
+  validateWinningNumbers(winningNumbers) {
+    LottoValidator.validateWinningNumbersInput(winningNumbers);
+    LottoValidator.validateWinningNumbers(winningNumbers.split(',').map(Number));
   }
 }
 

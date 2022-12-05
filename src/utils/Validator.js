@@ -12,6 +12,22 @@ class Validator {
   static isDivisibleBy(str, unit) {
     return parseInt(str) % unit === 0;
   }
+
+  static hasDuplicateElements(arr) {
+    const setToCompare = new Set(arr);
+    return arr.length !== setToCompare.size;
+  }
+
+  static hasNElements(arr, num) {
+    return arr.length === num;
+  }
+
+  static isBetween(numbers, start, end) {
+    if (typeof numbers === 'string') {
+      return start <= parseInt(numbers, 10) && parseInt(numbers, 10) <= end;
+    }
+    return numbers.every((num) => start <= num && num <= end);
+  }
 }
 
 module.exports = Validator;

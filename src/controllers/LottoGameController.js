@@ -1,5 +1,5 @@
 const LottoGame = require('../models/LottoGame');
-const { readBudget } = require('../views/InputView');
+const { readBudget, readWinningNumbers } = require('../views/InputView');
 const { printPurchasedLottos } = require('../views/OutputView');
 
 class LottoGameController {
@@ -12,6 +12,11 @@ class LottoGameController {
   onReadBudget(budget) {
     this.#lottoGame = new LottoGame(budget);
     printPurchasedLottos(this.#lottoGame.getPurchasedLottos());
+    readWinningNumbers(this.onReadWinningNumbers.bind(this));
+  }
+
+  onReadWinningNumbers(winningNumbers) {
+    this.#lottoGame.initWinningNumbers(winningNumbers);
   }
 }
 
