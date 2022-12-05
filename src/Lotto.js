@@ -1,4 +1,5 @@
 const { LOTTO, ERROR_MESSAGE } = require('./utils/constants');
+const LottoValidator = require('./utils/LottoValidator');
 
 class Lotto {
   #numbers;
@@ -9,9 +10,7 @@ class Lotto {
   }
 
   validate(numbers) {
-    if (numbers.length !== LOTTO.size) {
-      throw new Error(ERROR_MESSAGE.invalidLotto);
-    }
+    LottoValidator.validateLotto(numbers);
   }
 
   getNumbers() {

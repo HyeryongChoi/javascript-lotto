@@ -2,6 +2,16 @@ const { LOTTO, ERROR_MESSAGE } = require('./constants');
 const Validator = require('./Validator');
 
 class LottoValidator extends Validator {
+  static validateLotto(numbers) {
+    if (
+      !LottoValidator.hasNElements(numbers, LOTTO.size) ||
+      !LottoValidator.isBetween(numbers, LOTTO.min, LOTTO.max) ||
+      LottoValidator.hasDuplicateElements(numbers)
+    ) {
+      throw new Error(ERROR_MESSAGE.invalidLotto);
+    }
+  }
+
   static validateWinningNumbersInput(str) {
     const NUMBER_COMMA_REGEXP = /^[0-9,]+$/;
     const START_IS_COMMA_REGEXP = /^[,]/;
