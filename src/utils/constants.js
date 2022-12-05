@@ -6,7 +6,14 @@ const INPUT_MESSAGE = Object.freeze({
 
 const OUTPUT_MESSAGE = Object.freeze({
   newLine: '\n',
+  winningStatistics: '\n당첨 통계\n---',
   buyLotto: (quantity) => `${quantity}개를 구매했습니다.`,
+  firstPlace: (count) => `${LOTTO.six}개 일치 (2,000,000,000원) - ${count}개`,
+  secondPlace: (count) => `${LOTTO.five}개 일치, 보너스 볼 일치 (30,000,000원) - ${count}개`,
+  thirdPlace: (count) => `${LOTTO.five}개 일치 (1,500,000원) - ${count}개`,
+  fourthPlace: (count) => `${LOTTO.four}개 일치 (50,000원) - ${count}개`,
+  fifthPlace: (count) => `${LOTTO.three}개 일치 (5,000원) - ${count}개`,
+  totalRateOfReturn: (rateOfReturn) => `총 수익률은 ${rateOfReturn}%입니다.\n`,
 });
 
 const ERROR_MESSAGE = Object.freeze({

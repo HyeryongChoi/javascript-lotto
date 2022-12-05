@@ -10,11 +10,10 @@ class Lotto {
 
   validate(numbers) {
     if (numbers.length !== LOTTO.size) {
-      throw new Error(ERRORMESSAGE.invalidLotto);
+      throw new Error(ERROR_MESSAGE.invalidLotto);
     }
   }
 
-  // TODO: 추가 기능 구현
   getNumbers() {
     return Object.freeze(this.#numbers);
   }

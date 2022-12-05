@@ -55,7 +55,8 @@ class Player {
     LOTTO.prize.forEach((value, index) => {
       totalPrize += rankCount[index] * value;
     });
-    return ((totalPrize / this.#budget) * 100).toFixed(1);
+    const rateOfReturn = Number(((totalPrize / this.#budget) * 100).toFixed(1));
+    return rateOfReturn;
   }
 }
 
