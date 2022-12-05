@@ -22,6 +22,16 @@ const LOTTO = Object.freeze({
   min: 1,
   max: 45,
   size: 6,
+  prize: [0, 2000000000, 30000000, 1500000, 50000, 5000],
+  six: 6,
+  five: 5,
+  four: 4,
+  three: 3,
+  first: 1,
+  second: 2,
+  third: 3,
+  fourth: 4,
+  fifth: 5,
 });
 
 module.exports = {

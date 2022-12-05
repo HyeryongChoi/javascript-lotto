@@ -35,6 +35,13 @@ class LottoGame {
     LottoValidator.validateBonusNumber(bonusNumber, Object.freeze(this.#winningNumbers));
     this.#bonusNumber = parseInt(bonusNumber, 10);
   }
+
+  getLottoResult() {
+    const winningNumbers = Object.freeze(this.#winningNumbers);
+    const bonusNumber = this.#bonusNumber;
+    const rankCount = this.#player.getRankCount(winningNumbers, bonusNumber);
+    return { rankCount };
+  }
 }
 
 module.exports = LottoGame;
