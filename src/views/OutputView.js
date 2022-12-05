@@ -2,7 +2,7 @@ const { Console } = require('@woowacourse/mission-utils');
 const { OUTPUT_MESSAGE } = require('../utils/constants');
 
 const OutputView = {
-  printPurchasedLotto(lottos) {
+  printPurchasedLottos(lottos) {
     Console.print(OUTPUT_MESSAGE.newLine);
     Console.print(OUTPUT_MESSAGE.buyLotto(lottos.length));
     lottos.forEach((lotto) => {

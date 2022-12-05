@@ -1,25 +1,25 @@
-const Budget = require('./Budget');
+const Player = require('./Player');
 const Lotto = require('../Lotto');
 const LottoMachine = require('./LottoMachine');
 const { LOTTO } = require('../utils/constants');
 
 class LottoGame {
-  #budget;
-  #lottos;
+  #player;
 
-  constructor(money) {
-    this.#budget = new Budget(money);
-    this.buyLotto(this.#budget.getQuantity(LOTTO.price));
+  constructor(budget) {
+    this.#player = new Player(budget);
+    this.issueLottos(this.#player.getLottoQuantity(LOTTO.price));
   }
 
-  buyLotto(quantity) {
-    this.#lottos = Array.from({ length: quantity }, () => {
+  issueLottos(quantity) {
+    const lottos = Array.from({ length: quantity }, () => {
       return new Lotto(LottoMachine.issue());
     });
+    this.#player.buy(lottos);
   }
 
-  getLottos() {
-    return Object.freeze(this.#lottos);
+  getPurchasedLottos() {
+    return Object.freeze(this.#player.getLottos());
   }
 }
 
