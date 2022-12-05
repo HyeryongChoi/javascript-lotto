@@ -26,6 +26,10 @@ class Lotto {
     });
     return matchCount;
   }
+
+  hasBonusNumber(bonusNumber) {
+    return this.#numbers.includes(bonusNumber);
+  }
 }
 
 module.exports = Lotto;
