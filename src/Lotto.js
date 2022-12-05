@@ -1,3 +1,5 @@
+const { LOTTO, ERROR_MESSAGE } = require('./utils/constants');
+
 class Lotto {
   #numbers;
 
@@ -7,14 +9,22 @@ class Lotto {
   }
 
   validate(numbers) {
-    if (numbers.length !== 6) {
-      throw new Error('[ERROR] 로또 번호는 6개여야 합니다.');
+    if (numbers.length !== LOTTO.size) {
+      throw new Error(ERRORMESSAGE.invalidLotto);
     }
   }
 
   // TODO: 추가 기능 구현
   getNumbers() {
     return Object.freeze(this.#numbers);
+  }
+
+  match(winningNumbers) {
+    let matchCount = 0;
+    this.#numbers.forEach((num) => {
+      if (winningNumbers.has(num)) matchCount += 1;
+    });
+    return matchCount;
   }
 }
 

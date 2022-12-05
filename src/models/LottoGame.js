@@ -28,7 +28,7 @@ class LottoGame {
   initWinningNumbers(winningNumbers) {
     LottoValidator.validateWinningNumbersInput(winningNumbers);
     LottoValidator.validateWinningNumbers(winningNumbers.split(',').map(Number));
-    this.#winningNumbers = winningNumbers.split(',').map(Number);
+    this.#winningNumbers = new Set(winningNumbers.split(',').map(Number));
   }
 
   initBonusNumber(bonusNumber) {

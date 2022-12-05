@@ -10,6 +10,7 @@ const OUTPUT_MESSAGE = Object.freeze({
 });
 
 const ERROR_MESSAGE = Object.freeze({
+  invalidLotto: '[ERROR] 로또 번호는 6개여야 합니다.',
   invalidBudget: '[ERROR] 로또 구입 금액은 1,000원 단위로 입력해야 합니다.',
   invalidWinningNumbers:
     '[ERROR] 당첨 번호 입력은 1~45 사이의 "숫자,숫자,숫자,숫자,숫자,숫자"형식이어야 합니다.',

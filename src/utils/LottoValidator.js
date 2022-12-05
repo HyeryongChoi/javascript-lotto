@@ -32,7 +32,7 @@ class LottoValidator extends Validator {
     if (
       !LottoValidator.isNumeric(bonusNumber) ||
       !LottoValidator.isBetween(bonusNumber, LOTTO.min, LOTTO.max) ||
-      winningNumbers.includes(parseInt(bonusNumber, 10))
+      winningNumbers.has(parseInt(bonusNumber, 10))
     ) {
       throw new Error(ERROR_MESSAGE.invalidBonusNumber);
     }
