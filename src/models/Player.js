@@ -49,6 +49,14 @@ class Player {
     if (count === LOTTO.four) return LOTTO.fourth;
     if (count === LOTTO.three) return LOTTO.fifth;
   }
+
+  getRateOfReturn(rankCount) {
+    let totalPrize = 0;
+    LOTTO.prize.forEach((value, index) => {
+      totalPrize += rankCount[index] * value;
+    });
+    return ((totalPrize / this.#budget) * 100).toFixed(1);
+  }
 }
 
 module.exports = Player;

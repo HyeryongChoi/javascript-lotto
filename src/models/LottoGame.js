@@ -40,7 +40,8 @@ class LottoGame {
     const winningNumbers = Object.freeze(this.#winningNumbers);
     const bonusNumber = this.#bonusNumber;
     const rankCount = this.#player.getRankCount(winningNumbers, bonusNumber);
-    return { rankCount };
+    const rateOfReturn = this.#player.getRateOfReturn(rankCount);
+    return { rankCount, rateOfReturn };
   }
 }
 
